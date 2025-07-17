@@ -107,7 +107,7 @@
 		target = <&cam1_clk>;
 		cam_clk: __overlay__ {
 			status = "okay";
-			clock-frequency = <24000000>;
+			clock-frequency = <37125000>;
 		};
 	};
 
