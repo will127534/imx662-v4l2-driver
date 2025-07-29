@@ -34,8 +34,8 @@ sudo apt install linux-headers dkms git
 Clone the repository to your local machine and navigate to the cloned directory:
 
 ```bash
-git clone https://github.com/will127534/imx678-v4l2-driver.git
-cd imx678-v4l2-driver/
+git clone https://github.com/will127534/imx662-v4l2-driver.git
+cd imx662-v4l2-driver/
 ```
 
 ### Compiling and Installing the Kernel Driver
@@ -54,11 +54,11 @@ Edit the boot configuration file using the following command:
 sudo nano /boot/config.txt
 ```
 
-In the opened editor, locate the line containing `camera_auto_detect` and change its value to `0`. Then, add the line `dtoverlay=imx678`. So, it will look like this:
+In the opened editor, locate the line containing `camera_auto_detect` and change its value to `0`. Then, add the line `dtoverlay=imx662`. So, it will look like this:
 
 ```
 camera_auto_detect=0
-dtoverlay=imx678
+dtoverlay=imx662
 ```
 
 After making these changes, save the file and exit the editor.
@@ -72,7 +72,7 @@ Remember to reboot your system for the changes to take effect.
 If the camera is attached to cam0 port, append the dtoverlay with `,cam0` like this:  
 ```
 camera_auto_detect=0
-dtoverlay=imx678,cam0
+dtoverlay=imx662,cam0
 ```
 
 ### always-on
@@ -80,7 +80,7 @@ dtoverlay=imx678,cam0
 If you want to keep the camera power always on (Useful for debugging HW issues, specifically this will set CAM_GPIO to high constantly), append the dtoverlay with `,always-on` like this:  
 ```
 camera_auto_detect=0
-dtoverlay=imx678,always-on
+dtoverlay=imx662,always-on
 ```
 
 ### Lane Count
@@ -88,7 +88,7 @@ dtoverlay=imx678,always-on
 If you want to use 2-lane for IMX678, append the dtoverlay with `,2lane` like this:  
 ```
 camera_auto_detect=0
-dtoverlay=imx678,2lane
+dtoverlay=imx662,2lane
 ```
 
 
@@ -97,7 +97,7 @@ dtoverlay=imx678,2lane
 If you want to change the default link frequency of 1440Mbps/lane (720Mhz), you can chage it like the following:
 ```
 camera_auto_detect=0
-dtoverlay=imx678,link-frequency=297000000
+dtoverlay=imx662,link-frequency=297000000
 ```
 Here is a list of available frequencies:
 | Valid Frequency Value | Mbps/Lane | Max Framerate with 4K 12bit + 4 lane | Max Framerate with 4K 12bit + 2 lane |
@@ -119,7 +119,7 @@ For ClearHDR mode the framerate will be half, for 1080P 2x2 binned the framerate
 Last note is that all the options can be used at the same time, the dtoverlay will looks like this:
 ```
 camera_auto_detect=0
-dtoverlay=imx678,always-on,cam0,link-frequency=297000000
+dtoverlay=imx662,always-on,cam0,link-frequency=297000000
 ```
 
 
